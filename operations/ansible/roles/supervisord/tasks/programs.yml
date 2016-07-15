@@ -1,0 +1,15 @@
+- name: Create supervisord program log directory
+  file: 
+    path: "{{ item.log_directory }}"
+    owner: "{{ item.owner }}"
+    state: directory
+  with_items: svd_programs
+    
+- name: Install supervisord program config
+  template: 
+    src: program.conf.j2
+    dest: "/etc/supervisord.d/{{ item.name }}.conf"
+  with_items: svd_programs
+  notify: Reload supervisord
+
+

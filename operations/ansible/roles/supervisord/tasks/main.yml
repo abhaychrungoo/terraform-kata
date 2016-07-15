@@ -1,0 +1,28 @@
+- name: Install pip
+  yum: name=python-pip state=present
+
+- name: Install supervisord
+  pip: name=supervisor state=present
+
+- name: Create program config directory
+  file: 
+    path: /etc/supervisord.d
+    state: directory
+
+# Supervisor from pip doesn't have an init script so we need to install it.
+- name: Install supervisord init script
+  copy: src=init.d/supervisord dest=/etc/init.d/supervisord mode=0755
+
+- name: Create supervisord log directory
+  file:
+    path: /var/log/supervisor
+    state: directory
+
+- name: Install supervisord config
+  template: src=supervisord.conf.j2 dest=/etc/supervisord.conf
+  notify: Reload supervisord 
+
+- name: Start and enable supervisord
+  service: name=supervisord state=started enabled=yes  
+
+- include: programs.yml

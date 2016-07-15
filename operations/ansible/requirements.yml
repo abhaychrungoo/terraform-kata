@@ -1,0 +1,10 @@
+#https://github.com/waharnum/ansible-nginx-reverse-proxy
+- src: https://github.com/waharnum/ansible-nginx-reverse-proxy
+  version: a8844505d442e74cc81e76434a22b78ece45794c
+  name: nginx_proxy
+# Supervisord
+- src: https://github.com/abhaychrungoo/ansible-role-supervisord.git
+  version: 1.0.1
+  name: supervisord
+- src: michaellessard.nginx
+  name: nginx

@@ -1,0 +1,24 @@
+[supervisord]
+http_port=/var/run/supervisor.sock
+logfile=/var/log/supervisor/supervisord.log
+logfile_maxbytes=50MB       
+logfile_backups=10          
+loglevel=info               
+pidfile=/var/run/supervisord.pid 
+nodaemon=false              
+minfds=1024                 
+minprocs=200                
+
+[supervisorctl]
+serverurl=unix:///var/run/supervisor.sock
+
+[unix_http_server]
+file = /var/run/supervisor.sock
+chmod = 0777
+
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+
+[include]
+files = /etc/supervisord.d/*.conf

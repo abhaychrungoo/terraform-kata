@@ -1,0 +1,12 @@
+##
+- hosts: all
+  vars:
+    - nginx_reverse_proxy_proxies:
+      - config_name: loadbalancer
+        backend_name: standalone
+        backends: "{{ target_webapps }}"
+        domains:
+          - '~^.*$'
+  roles:
+    - nginx
+    - nginx_proxy

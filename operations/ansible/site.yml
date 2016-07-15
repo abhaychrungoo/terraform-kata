@@ -1,0 +1,8 @@
+##
+- hosts: role_webapp
+  tasks:
+    - copy: src=../../main.go dest=/home/ec2-user/main.go owner=ec2-user
+      notify: restart maingo
+  handlers:
+    - name: restart maingo
+      command: /usr/local/bin/supervisorctl restart maingo

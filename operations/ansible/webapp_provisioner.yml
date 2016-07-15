@@ -1,0 +1,9 @@
+##
+- hosts: all
+  name : install_supervisord
+  roles:
+    - supervisord
+  tasks:
+    - copy: src=../config/maingo.conf dest=/etc/supervisord.d/maingo.conf
+    - yum: name=go state=latest
+

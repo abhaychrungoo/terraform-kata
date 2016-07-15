@@ -1,0 +1,17 @@
+#jinja2:trim_blocks: False
+[program:{{ item.name }}]
+command={{ item.command }}
+process_name = {{ item.name }}-%(process_num)s
+numprocs={{ item.numprocs|default(1) }}
+directory={{ item.directory }}
+autostart={% if item.autostart|default(true) %}true{% else %}false{% endif %}
+autorestart={% if item.autorestart|default(true) %}true{% else %}false{% endif %}
+stdout_logfile={{ item.log_directory }}/supervisor.{{ item.name }}.log
+stdout_logfile_maxbytes=1MB
+stdout_logfile_backups=3
+stderr_logfile={{ item.log_directory }}/supervisor.{{ item.name }}.error.log
+stderr_logfile_maxbytes=1MB
+stderr_logfile_backups=3
+exitcodes={{ item.exitcodes|default('0,2') }}
+user={{ item.owner }}
+redirect_stderr=true

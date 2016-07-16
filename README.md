@@ -8,7 +8,9 @@ Setup the PreRequisites
 
 copy `operations/terraform/terraform.tfvars.sample` to `operations/terraform/terraform.tfvars` and supply the aws credentials.
 
-```./run
+### Run
+```
+./run
 ```
 
 ## References. Other Hooks
@@ -24,7 +26,8 @@ copy `operations/terraform/terraform.tfvars.sample` to `operations/terraform/ter
 ```
 
 ### Cleanup all aws resources. Destroy the environment
-```./cleanup
+```bash
+./cleanup
 ```
 ## Pre-Requisites
 

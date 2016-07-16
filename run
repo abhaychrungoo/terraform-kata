@@ -10,13 +10,15 @@ echo "# ################################################"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo "Doing an end-end run"
-phase_change
+phase_change &&\
 ${DIR}/bootstrap &&\
-phase_change
+phase_change &&\
+${DIR}/deploy_infra&&\
+phase_change &&\
 ${DIR}/deploy_stack &&\
-phase_change
-${DIR}/test
-phase_change
+phase_change &&\
+${DIR}/test &&\
 
+echo "_______DONE_HERE__________"
 echo "Finished with exit code $?"
 

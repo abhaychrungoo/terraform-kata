@@ -2,5 +2,5 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-echo "Creating / Syncing Infrastructure" 
+echo "(Re)Deploying the Go Application" 
 (cd ${DIR}/operations/terraform && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -u ec2-user -b --key-file ../keys/id_rsa -i `which terraform-inventory` ../ansible/site.yml)

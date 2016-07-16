@@ -25,6 +25,7 @@ module "ec2_networking" {
 	source = "./modules/ec2_networking"
 	access_key = "${var.aws_access_key}"
 	secret_key = "${var.aws_secret_key}"
+        public_key = "${file("${path.root}/../keys/id_rsa.pub")}"
 	region = "${var.aws_region}"
 	env = "${var.env}"
 	whitelisted_ssh_cidr = "${var.whitelisted_ssh_cidr}"

@@ -9,6 +9,7 @@ variable "whitelisted_ssh_cidr" {}
 variable "region" {
         default = "us-east-1"
 }
+variable "public_key" {}
 
 variable "env" {
         default = "dev"
@@ -23,8 +24,8 @@ provider "aws" {
 
 resource "aws_key_pair"  "kata_key_pair" {
 	key_name = "${var.topscope}_${var.env}_kata"
-#	public_key = "${file("${path.root}/../keys/ida_rsa.pub")}"
-	public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCXWwxMLZiXhjn2srqu2PChZcIZV63Kej0SU3dggR6i4sbDY+4mHcx0VVZojoj4Xy2NcW01a3m0rDEsxCQVb+nUfv3Eru+40FLUg+KJd18hMugmD10wtPPcN8u50tJU+2txzREZrG3dRvOarOK5vM1k0Vn4mGX5U8suCCQifqHBj0whGaMXzHOqCvnak5EFELa7thDx2nGBsQQtLLndpHnyejjbgs/NZFVXleiDym39fHcjl0QzoZEO/veZMLQmVlpqI7kzexWP2RdCZskaMU+6NVlMCZzmJ7ANbnPv5B2MRwT7Ulj8eOEA/Qh/doeXSfhLycc0oWmEeY9BvVliCHLN"
+	#public_key = "${file("${path.root}/../keys/ida_rsa.pub")}"
+	public_key = "${var.public_key}"
 }
 
 resource "aws_security_group" "public_loadbalancer"{

@@ -3,4 +3,4 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo "Creating / Syncing Infrastructure" 
-(cd ${DIR}/operations/terraform && terraform destroy)
+(cd ${DIR}/operations/terraform && terraform get && terraform destroy)

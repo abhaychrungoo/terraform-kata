@@ -13,15 +13,17 @@ copy operations/terraform/terraform.tfvars.sample to operations/terraform/terraf
 
 ## Refernce
 
-# Provision the aws infrastructure
-```./deploy_infra
+### Provision the aws infrastructure
+```bash
+./deploy_infra
 ```
 
-# Deploy the application stack for any application code changes
-```./deploy_stack
+### Deploy the application stack for any application code changes
+```bash
+./deploy_stack
 ```
 
-# Cleanup all aws resources. Destroy the environment
+### Cleanup all aws resources. Destroy the environment
 ```./cleanup
 ```
 ## Pre-Requisites
@@ -35,7 +37,8 @@ Install [terraform-inventory](https://github.com/adammck/terraform-inventory) an
 ## Tests
 
 Run a simple test to hit the loadbalancer 10 times
-```./test
+```bash
+./test
 ```
 
 ## License

@@ -1,4 +1,0 @@
-#!/bin/bash
-
-pip install boto
-https://github.com/adammck/terraform-inventory

@@ -4,5 +4,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo "Creating / Syncing Infrastructure" 
 
+echo "generating keys"
+(cd ${DIR}/operations/keys && ssh-keygen -t rsa -N "" -f id_rsa)
+
 echo "Downloading required ansible modules"
 (cd ${DIR}/operations/ansible && ansible-galaxy install -r requirements.yml -p roles)

@@ -3,3 +3,5 @@ terraform.tfvars
 operations/ansible/roles/*
 *.swp
 *.retry
+id_rsa
+id_rsa.pub

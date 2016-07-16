@@ -6,12 +6,12 @@ A prepared kata to demonstrate fully automated Infrastructure provisioning and a
 
 Setup the PreRequisites
 
-copy operations/terraform/terraform.tfvars.sample to operations/terraform/terraform.tfvars and supply the aws credentials.
+copy `operations/terraform/terraform.tfvars.sample` to `operations/terraform/terraform.tfvars` and supply the aws credentials.
 
 ```./run
 ```
 
-## Refernce
+## References. Other Hooks
 
 ### Provision the aws infrastructure
 ```bash
@@ -31,7 +31,8 @@ copy operations/terraform/terraform.tfvars.sample to operations/terraform/terraf
 Install [Terraform](https://www.terraform.io/intro/getting-started/install.html) and make it available on the path.  
 Install [Ansible](http://docs.ansible.com/ansible/intro_installation.html)  and make it available on the path.  
 Install [terraform-inventory](https://github.com/adammck/terraform-inventory) and make it available on the path.  
-```pip install boto
+```bash
+pip install boto
 ``` 
 
 ## Tests

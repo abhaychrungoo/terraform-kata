@@ -48,7 +48,7 @@ resource "aws_instance" "webapp" {
 
 # Post Provisioning
  provisioner "local-exec" {
- command = "sleep 40 && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i ${self.public_ip},  -u ec2-user -b --key-file ../keys/id_rsa ../ansible/webapp_provisioner.yml"
+ command = "sleep 120 && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i ${self.public_ip},  -u ec2-user -b --key-file ../keys/id_rsa ../ansible/webapp_provisioner.yml"
  }
 
 

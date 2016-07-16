@@ -41,7 +41,7 @@ resource "aws_instance" "standalone" {
          env  = "${var.env}"
  }
  provisioner "local-exec" {
- command = "sleep 40 && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i ${aws_instance.standalone.public_ip}, -u ec2-user -b --key-file ../keys/id_rsa --extra-vars='{\"target_webapps\":[\"${element(split(",",var.target_webapps),1)}:8484\",\"${element(split(",",var.target_webapps),0)}:8484\"]}' ../ansible/loadbalancer_provisioner.yml"
+ command = "sleep 120 && export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook -i ${aws_instance.standalone.public_ip}, -u ec2-user -b --key-file ../keys/id_rsa --extra-vars='{\"target_webapps\":[\"${element(split(",",var.target_webapps),1)}:8484\",\"${element(split(",",var.target_webapps),0)}:8484\"]}' ../ansible/loadbalancer_provisioner.yml"
  }
 
 }

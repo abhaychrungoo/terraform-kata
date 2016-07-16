@@ -1,0 +1,22 @@
+#/bin/bash
+
+function phase_change(){
+
+echo "# ################################################"
+echo "# Next Phase     #################################"
+echo "# ################################################"
+}
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+echo "Doing an end-end run"
+phase_change
+${DIR}/bootstrap &&\
+phase_change
+${DIR}/deploy_stack &&\
+phase_change
+${DIR}/test
+phase_change
+
+echo "Finished with exit code $?"
+

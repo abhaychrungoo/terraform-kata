@@ -1,0 +1,8 @@
+#/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+echo "Creating / Syncing Infrastructure" 
+
+echo "Downloading required ansible modules"
+(cd ${DIR}/operations/ansible && rm -rf roles && ansible-galaxy install -r requirements.yml -p roles)

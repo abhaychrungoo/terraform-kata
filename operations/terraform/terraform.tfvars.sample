@@ -1,0 +1,5 @@
+aws_access_key	= "AAKIAJIZCLPOBQKOENIBA"
+aws_secret_key	= "AZW8t1cEZy5nVuhfq9SvxEQOFncMUWzWyhxFk15+N"
+
+env		= "dev"
+topscope	= "PaymentService"

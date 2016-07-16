@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "You are claiming that you've deployed the infra as well as the stack. Lets run a small test"
+loadbalancer=$(cd operations/terraform && terraform output loadbalancer_ip)
+URL=${loadbalancer:-default google.com}
+echo "The loadbalancer is at ${URL}"
+echo "And its not supposed to be google.com"
+echo "Hitting http://${URL} 10 times"
+
+echo "waiting for responses and counts"
+for i in `seq 1 10` ;do curl $URL -s -f --connect-timeout 3 ; echo ""; done  | sort | uniq -c
